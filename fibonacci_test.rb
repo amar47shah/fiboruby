@@ -5,38 +5,44 @@ require_relative 'fibonacci'
 
 class FibonacciTest < Minitest::Test
   def test_fib_0
-    assert_equal 1, Fibonacci.new(0).value
+    assert_fib 1, 0
   end
 
   def test_fib_1
-    assert_equal 1, Fibonacci.new(1).value
+    assert_fib 1, 1
   end
 
   def test_fib_2
-    assert_equal 2, Fibonacci.new(2).value
+    assert_fib 2, 2
   end
 
   def test_fib_3
-    assert_equal 3, Fibonacci.new(3).value
+    assert_fib 3, 3
   end
 
   def test_fib_4
-    assert_equal 5, Fibonacci.new(4).value
+    assert_fib 5, 4
   end
 
   def test_fib_5
-    assert_equal 8, Fibonacci.new(5).value
+    assert_fib 8, 5
   end
 
   def test_fib_40
-    assert_equal 165580141, Fibonacci.new(40).value
+    assert_fib 165580141, 40
   end
 
   def test_fib_50
-    assert_equal 20365011074, Fibonacci.new(50).value
+    assert_fib 20365011074, 50
   end
 
   def test_negative
-    assert_raises(ArgumentError) { Fibonacci.new(-5).value }
+    assert_raises(ArgumentError) { Fibonacci.new(-5) }
+  end
+
+private
+
+  def assert_fib value, n
+    assert_equal value, Fibonacci.new(n).value
   end
 end
