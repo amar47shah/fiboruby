@@ -6,8 +6,6 @@ class Fibonacci
   def value
     fail ArgumentError, 'index cannot be negative' if @n < 0
     return 1 if @n.zero?
-    (1..@n).reduce([0,1]) do |(before_previous, previous), _|
-      [previous, before_previous + previous]
-    end.last
+    (1..@n).reduce([0,1]) { |(pp, p), _| [p, pp + p] }.last
   end
 end
