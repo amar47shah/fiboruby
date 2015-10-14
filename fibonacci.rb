@@ -5,6 +5,6 @@ class Fibonacci
   end
 
   def value
-    (1..@n).reduce([0, 1]) { |(pp, p), _| [p, pp + p] }.last
+    @n.times.reduce([0, 1]) { |(pp, p), _| [p, pp + p] }.last
   end
 end
