@@ -5,7 +5,6 @@ class Fibonacci
   end
 
   def value
-    return 1 if @n.zero?
     (1..@n).reduce([0, 1]) { |(pp, p), _| [p, pp + p] }.last
   end
 end
